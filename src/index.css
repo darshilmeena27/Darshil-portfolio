@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #0a0a0a;
+}
+body {
+    text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.8),
+        2px 2px 0 rgba(217, 4, 41, 0.2);
+    overflow-x: hidden;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+:root {
+    --MainFont: "Pixelify Sans", sans-serif;
+    --accentColor: #d90429;
+    --secondaryColor: #e0002a;
+}

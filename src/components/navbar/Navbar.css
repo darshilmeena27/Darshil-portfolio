@@ -1,0 +1,78 @@
+.NavContainer {
+    position: fixed;
+    bottom: 20px;
+    height: 60px;
+    width: 100%;
+    font-family: var(--MainFont);
+    z-index: 1000;
+}
+.NavCenter {
+    background-color: var(--secondaryColor);
+    max-width: 640px;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+.Nav {
+    width: 100%;
+    height: 100%;
+}
+.NavList {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.ListItems a {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+}
+.ListItems a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    transition: all ease 0.3s;
+}
+.ListItems a:hover::after {
+    width: 100%;
+}
+
+@media (max-height: 600px) {
+    .NavContainer {
+        bottom: 12px;
+        height: 50px;
+    }
+
+    .ListItems a {
+        font-size: 15px;
+    }
+}
+@media (max-width: 680px) {
+    .NavContainer {
+        width: 100%;
+        height: 52px;
+        bottom: 12px;
+        padding: 0 12px;
+    }
+
+    .NavCenter {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 12px;
+    }
+
+    .NavList {
+        padding: 0 5px;
+    }
+
+    .ListItems a {
+        font-size: 13px;
+    }
+}
