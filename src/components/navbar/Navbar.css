@@ -1,7 +1,7 @@
 .NavContainer {
     position: fixed;
     bottom: 20px;
-    height: 60px;
+    height: 45px;
     width: 100%;
     font-family: var(--MainFont);
     z-index: 1000;
@@ -44,10 +44,10 @@
     width: 100%;
 }
 
-@media (max-height: 600px) {
+@media (max-height: 600px) {s
     .NavContainer {
         bottom: 12px;
-        height: 50px;
+        height: 40px;
     }
 
     .ListItems a {
@@ -56,10 +56,9 @@
 }
 @media (max-width: 680px) {
     .NavContainer {
-        width: 100%;
         height: 52px;
         bottom: 12px;
-        padding: 0 12px;
+        padding: 0 8px;
     }
 
     .NavCenter {
