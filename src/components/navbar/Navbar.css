@@ -6,7 +6,7 @@
     height: var(--nav-height);
     padding: 0 var(--nav-padding-x);
     font-family: var(--MainFont);
-    z-index: var(--z-navigation);
+    z-index: var(--z-navbar);
 }
 .NavCenter {
     width: 100%;

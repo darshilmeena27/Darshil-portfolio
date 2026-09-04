@@ -117,6 +117,12 @@ a {
 
     --MainFont: "Pixelify Sans", sans-serif;
 
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 16px;
+    --text-lg: 18px;
+    --text-xl: 24px;
+
     --font-ui: 14px;
     --font-body: 16px;
     --font-subtitle: 24px;

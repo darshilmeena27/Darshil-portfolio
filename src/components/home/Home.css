@@ -1,13 +1,35 @@
 .HomeSection {
+    --hero-gap: var(--space-11);
+
+    --header-height: 40px;
+
+    --logo-width: 45px;
+    --logo-height: 25px;
+
+    --availability-width: 160px;
+    --status-dot-size: 7px;
+
+    --polaroid-width: 280px;
+    --polaroid-image-height: 250px;
+    --polaroid-padding-x: 12px;
+    --polaroid-padding-bottom: 20px;
+
+    --arrow-width: 170px;
+    --arrow-stroke: 4px;
+
     min-height: 100dvh;
     height: 100dvh;
     width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
     padding: var(--pagePadding);
     font-family: var(--MainFont);
     display: flex;
     flex-direction: column;
 }
+
+/* ================================
+   HEADER
+================================= */
 
 .HomeHead {
     width: 100%;
@@ -16,6 +38,9 @@
     align-items: center;
     justify-content: space-between;
 }
+
+/* Logo */
+
 .Logo {
     position: relative;
     width: var(--logo-width);
@@ -32,7 +57,7 @@
     color: var(--textPrimary);
     letter-spacing: 2px;
     font-size: var(--text-lg);
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
 }
 
 .LogoLong {
@@ -64,12 +89,10 @@
     position: relative;
     display: inline-block;
 }
-
 .WorkTypeWindow {
     height: 20px;
     overflow: hidden;
 }
-
 .WorkTypeText {
     display: block;
 }
@@ -80,22 +103,27 @@
     margin: 0 auto;
     flex: 1;
     display: grid;
-    grid-template-columns: 1fr 320px;
+    grid-template-columns: minmax(0, 1fr) 320px;
     align-items: center;
-    gap: var(--space-11);
+    gap: var(--hero-gap);
 }
 
 .HeroText {
-    min-width: 0;
     width: 100%;
-    max-width: 650px;
+    max-width: 760px;
+    min-width: 0;
 }
+
+/* Greeting */
 
 .GreetTag {
     color: var(--accentColor);
-    margin-bottom: var(--hero-space-sm);
-    font-size: var(--font-label);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-lg);
+    overflow: hidden;
 }
+
+/* Main intro */
 
 .Intro {
     display: flex;
@@ -123,10 +151,13 @@
 }
 
 .HeroSubtitle {
-    margin-top: var(--hero-space-lg);
+    margin-top: var(--space-6);
     color: var(--textPrimary);
     overflow: hidden;
-    /* font-size: var(--font-subtitle); */
+}
+
+.HeroSubtitle h1 {
+    font-size: var(--font-subtitle);
 }
 
 .HeroSubtitle span {
@@ -135,7 +166,7 @@
 
 .Description {
     max-width: 580px;
-    margin-top: var(--hero-space-sm);
+    margin-top: var(--space-3);
     overflow: hidden;
 }
 
@@ -145,27 +176,33 @@
 }
 
 .BtnContainer {
-    margin-top: var(--hero-space-md);
+    margin-top: var(--space-5);
     display: flex;
     align-items: center;
     gap: var(--space-3);
 }
 
-.ResumeBtn {
+.ResumeBtn,
+.ContactBtn {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    font-family: var(--MainFont);
+    font-weight: var(--font-weight-bold);
+    overflow: hidden;
+}
+
+/* Resume */
+
+.ResumeBtn {
     gap: var(--space-1);
     padding: 11px 18px;
     border: none;
     border-radius: var(--radius-md);
     background: var(--accentColor);
     color: var(--textPrimary);
-    font-family: var(--MainFont);
-    font-weight: 700;
-    cursor: pointer;
-    overflow: hidden;
 }
 
 .ResumeCheck,
@@ -193,22 +230,15 @@
     display: block;
 }
 
-.ContactBtn {
-    position: relative;
+/* Contact */
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
+.ContactBtn {
+    gap: var(--space-1);
     padding: 11px 18px;
     border: var(--border-medium) solid var(--accentColor);
     border-radius: var(--radius-md);
-    background: none;
+    background: transparent;
     color: var(--textPrimary);
-    font-family: var(--MainFont);
-    font-weight: 700;
-    cursor: pointer;
-    overflow: hidden;
 }
 
 .HeroVisual {
@@ -216,6 +246,8 @@
     width: 320px;
     justify-self: center;
 }
+
+/* Arrow */
 
 .HeroArrow {
     position: absolute;
@@ -228,17 +260,18 @@
     pointer-events: none;
     opacity: 0;
 }
+
 .HeroArrow path {
     stroke: var(--accentColor);
     stroke-width: var(--arrow-stroke);
     stroke-linecap: round;
     stroke-linejoin: round;
 }
+
 .Polaroid {
     position: relative;
-    width: var(--visual-width-md);
-    flex: 0 0 var(--visual-width-md);
-    padding: var(--visual-padding-x) var(--visual-padding-x) var(--visual-padding-bottom);
+    width: var(--polaroid-width);
+    padding: var(--polaroid-padding-x) var(--polaroid-padding-x) var(--polaroid-padding-bottom);
     background: var(--surfaceLight);
     box-shadow: var(--shadow-polaroid);
     transform-style: preserve-3d;
@@ -247,10 +280,8 @@
 
 .PolaroidImage {
     width: 100%;
-    height: var(--visual-image-md);
-
+    height: var(--polaroid-image-height);
     background: var(--surfaceColor);
-
     overflow: hidden;
 }
 
@@ -269,347 +300,7 @@
     margin-top: var(--space-3);
     color: var(--textDark);
     font-size: var(--text-sm);
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     letter-spacing: 2px;
     text-align: center;
 }
-
-/* Responsive css
-@media (max-height: 700px) {
-    .HeroContent {
-        padding: 45px 0 85px;
-        gap: 50px;
-    }
-
-    .Intro span:nth-child(1) {
-        font-size: 40px;
-    }
-
-    .Intro span:nth-child(2),
-    .Intro span:nth-child(3) {
-        font-size: clamp(60px, 7vw, 100px);
-        line-height: 0.82;
-    }
-
-    .HeroSubtitle {
-        margin-top: 16px;
-    }
-
-    .Description {
-        margin-top: 8px;
-    }
-
-    .DescriptionText {
-        line-height: 1.45;
-    }
-
-    .BtnContainer {
-        margin-top: 14px;
-    }
-
-    .Polaroid {
-        flex-basis: 240px;
-        width: 240px;
-    }
-
-    .PolaroidImage {
-        height: 215px;
-    }
-}
-@media (max-height: 600px) {
-    .HeroContent {
-        padding: 60px 0 75px;
-        gap: 30px;
-    }
-
-    .Intro span:nth-child(1) {
-        font-size: 30px;
-    }
-
-    .Intro span:nth-child(2),
-    .Intro span:nth-child(3) {
-        font-size: clamp(50px, 6vw, 75px);
-        line-height: 0.8;
-    }
-
-    .HeroSubtitle {
-        margin-top: 10px;
-    }
-
-    .HeroSubtitle h1 {
-        font-size: 18px;
-    }
-
-    .Description {
-        margin-top: 5px;
-    }
-
-    .DescriptionText {
-        font-size: 13px;
-        line-height: 1.3;
-    }
-
-    .BtnContainer {
-        margin-top: 10px;
-    }
-
-    .ResumeBtn,
-    .ContactBtn {
-        padding: 9px 14px;
-        font-size: 13px;
-    }
-
-    .Polaroid {
-        flex-basis: 210px;
-        width: 210px;
-        padding: 9px 9px 14px;
-    }
-
-    .PolaroidImage {
-        height: 185px;
-    }
-
-    .PolaroidCaption {
-        margin-top: 8px;
-        font-size: 12px;
-    }
-
-    .HeroArrow {
-        width: 125px;
-    }
-}
-/* TABLET / SMALL LAPTOP */
-/* @media (max-width: 1124px) and (min-width: 681px) { */
-/* .HomeSection {
-        padding: 20px;
-    }
-
-    .HeroContent {
-        max-width: 900px;
-        padding: 70px 0 50px;
-        gap: 35px;
-    }
-
-    .HeroText {
-        min-width: 0;
-    }
-
-    .Intro span:nth-child(1) {
-        font-size: 38px;
-    }
-
-    .Intro span:nth-child(2),
-    .Intro span:nth-child(3) {
-        font-size: clamp(60px, 8vw, 90px);
-        line-height: 0.85;
-    }
-
-    .HeroSubtitle {
-        margin-top: 20px;
-    }
-
-    .HeroSubtitle h1 {
-        font-size: 22px;
-    }
-
-    .Description {
-        max-width: 500px;
-    }
-
-    .DescriptionText {
-        font-size: 14px;
-        line-height: 1.5;
-    }
-
-    .HeroVisual {
-        flex: 0 0 250px;
-    }
-
-    .Polaroid {
-        width: 230px;
-        flex: 0 0 230px;
-    }
-
-    .PolaroidImage {
-        height: 205px;
-    }
-
-    .HeroArrow {
-        width: 135px;
-        left: -85px;
-        top: -35px;
-    }
-
-    .BtnContainer {
-        margin-top: 18px;
-    }
-
-    .ResumeBtn,
-    .ContactBtn {
-        padding: 10px 15px;
-        font-size: 13px;
-    }
-}
-@media (max-width: 680px) {
-    .HomeSection {
-        min-height: 100vh;
-        height: auto;
-        padding: 20px;
-        overflow: hidden;
-    }
-
-    .HeroContent {
-        padding: 55px 0 80px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 45px;
-    }
-
-    .HeroText {
-        width: 100%;
-    }
-
-    .Intro span:nth-child(1) {
-        font-size: 30px;
-    }
-
-    .Intro span:nth-child(2),
-    .Intro span:nth-child(3) {
-        font-size: clamp(52px, 17vw, 78px);
-        line-height: 0.85;
-    }
-
-    .HeroSubtitle {
-        margin-top: 20px;
-    }
-
-    .HeroSubtitle h1 {
-        font-size: 20px;
-        line-height: 1.2;
-    }
-
-    .Description {
-        max-width: 100%;
-    }
-
-    .DescriptionText {
-        font-size: 13px;
-        line-height: 1.55;
-    }
-
-    .BtnContainer {
-        margin-top: 20px;
-        gap: 8px;
-        flex-wrap: wrap;
-    }
-
-    .ResumeBtn,
-    .ContactBtn {
-        padding: 10px 14px;
-        font-size: 12px;
-    }
-
-    .HeroVisual {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .Polaroid {
-        width: min(260px, 75vw);
-        flex: 0 0 auto;
-    }
-
-    .PolaroidImage {
-        height: auto;
-        aspect-ratio: 1 / 1;
-    }
-
-    .HeroArrow {
-        width: 120px;
-        left: -15px;
-        top: -65px;
-    }
-}
-@media (max-width: 400px) {
-    .NavContainer {
-        padding: 0 8px;
-        height: 48px;
-    }
-
-    .ListItems a {
-        font-size: 11px;
-    } */
-/* } */
-
-/* PORTRAIT TABLETS */
-/* @media (max-width: 1024px) and (orientation: portrait) { */
-/* .HomeSection {
-        height: auto;
-        min-height: 100vh;
-        padding: 20px;
-        overflow: hidden;
-    }
-
-    .HeroContent {
-        max-width: 700px;
-        padding: 70px 0 120px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 60px;
-    }
-
-    .HeroText {
-        width: 100%;
-    }
-
-    .Intro span:nth-child(1) {
-        font-size: 40px;
-    }
-
-    .Intro span:nth-child(2),
-    .Intro span:nth-child(3) {
-        font-size: clamp(65px, 11vw, 95px);
-        line-height: 0.85;
-    }
-
-    .HeroSubtitle {
-        margin-top: 22px;
-    }
-
-    .HeroSubtitle h1 {
-        font-size: 24px;
-    }
-
-    .Description {
-        max-width: 600px;
-    }
-
-    .DescriptionText {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    .HeroVisual {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .Polaroid {
-        width: 280px;
-        flex: 0 0 auto;
-    }
-
-    .PolaroidImage {
-        height: 250px;
-    }
-
-    .HeroArrow {
-        width: 150px;
-        left: -100px;
-        top: -45px;
-    }
-} */
